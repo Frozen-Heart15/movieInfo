@@ -1,0 +1,59 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Bootstrap -->
+        <link rel="stylesheet" href="/css/bootstrap.min.css">
+        <!-- CSS -->
+        <link rel="stylesheet" type="text/css" href="/css/styles.css">
+        <title>MovieInfo</title>
+    </head>
+    <body>
+     <!-- NAVBAR    -->
+        <nav class="navbar navbar-default">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="index.html">MovieInfo</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- JUMBOTRON -->
+<div class="container">
+    <div class="jumbotron">
+        <h3 class="text-center">Search For Any Movie</h3>
+        <form action="/" method="POST" id="searchForm">
+            <div class="row">
+                <div class="col-md-10">
+                    <input type="text" class="form-control" id="searchText" name="moviename" placeholder="Enter Movie Name" required>
+                </div>
+                <div class="col-md-2">
+                    <button type="submit" class="btn btn-primary search">Search</button>
+                </div>
+            </div>
+            
+
+        </form>
+    </div>
+</div>
+
+<!-- OUTPUT CONTAINER -->
+<div class="container">
+    <div id="movies" class="row">
+     <% if(movies !== ""){ %>
+        <% movies.forEach((movie)=>{ %>
+            <div class="col-md-3">
+                <div class="well text-center">
+                    <img src="<%= movie.Poster %>" alt="Movie Poster">
+                    <h5><%= movie.Title %></h5>
+                    <a href="/movie/<%= movie.imdbID %>" class="btn btn-success" href="#">Movie Details</a>
+                </div>
+            </div>
+       <% }) %>
+    <% } %>  
+    </div>
+</div>
+
+
+    </body>
+</html>
